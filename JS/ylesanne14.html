@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ülesanne 14</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Lisa siia oma CSS-i faili tee, kui kasutad eraldi CSS-faili -->
+  </head>
+  <body>
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item">Ootel: Lorem ipsum dolor sit amet</li>
+        <li class="list-group-item">Tehtud: Lorem ipsum dolor sit amet</li>
+        <li class="list-group-item">Viga: Lorem ipsum dolor sit amet</li>
+        <li class="list-group-item">Tehtud: Lorem ipsum dolor sit amet</li>
+        <li class="list-group-item">Tehtud: Lorem ipsum dolor sit amet</li>
+        <li class="list-group-item">Lorem ipsum dolor sit amet</li>
+        <li class="list-group-item">Viga: Lorem ipsum dolor sit amet</li>
+      </ul>
+    </div>
+
+    <script>
+        var listItems = document.querySelectorAll('.list-group-item');
+        
+        listItems.forEach(function (item) {
+            var text = item.textContent.toLowerCase();
+            
+            if (text.includes('Ootel')) {
+                item.classList.add('list-group-item-warning');
+                item.style.fontWeight = '700';
+            } else if (text.includes('Tehtud')) {
+                item.classList.add('list-group-item-success');
+                item.style.fontWeight = '700';
+            } else if (text.includes('Viga')) {
+                item.classList.add('list-group-item-danger');
+                item.style.fontWeight = '700';
+            }
+        });
+    </script>
+    
+  </body>
+</html>

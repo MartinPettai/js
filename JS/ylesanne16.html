@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .peida {
+            display: none;
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+    <title>Mobiiltelefonide nimekiri</title>
+</head>
+<body>
+
+    <h1>Mobiiltelefonide nimekiri</h1>
+    <ul id="mob">
+        <li>555<span class="peida">12345</span></li>
+        <li>567<span class="peida">89012</span></li>
+        <li>512<span class="peida">34567</span></li>
+        <li>534<span class="peida">56789</span></li>
+        <li>578<span class="peida">90123</span></li>
+        <li>543<span class="peida">21678</span></li>
+        <li>523<span class="peida">48765</span></li>
+        <li>556<span class="peida">67788</span></li>
+    </ul>
+
+    <script>
+        document.getElementById('mob').addEventListener('click', function(event) {
+            var target = event.target;
+
+            // Kontrolli, kas klõpsati .peida klassiga elemendile
+            if (target.classList.contains('peida')) {
+                // Leia vastava li elemendi sisu (telefoni number)
+                var phoneNumber = target.innerText;
+
+                // Kuvame konsoolis telefoni numbri
+                console.log("Telefoni number: " + phoneNumber);
+
+                // Eemalda .peida klass, et näidata viimast 5 numbrit
+                target.classList.remove('peida');
+            }
+        });
+    </script>
+</body>
+</html>

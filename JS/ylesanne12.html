@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ostukorv</title>
+</head>
+<body>
+  <h1>Ostukorv</h1>
+  <ul id="ostukorv"></ul>
+  <p id="kogusumma">Ostukorvi kogusumma: </p>
+
+  <script>
+    const ostukorv = {
+      tooted: [
+        { nimi: 'Piim', hind: 3.60, kogus: 2 },
+        { nimi: 'Leib', hind: 2.00, kogus: 1 },
+        { nimi: 'Munad', hind: 1.50, kogus: 6 },
+        { nimi: 'Juust', hind: 4.20, kogus: 1 },
+        { nimi: 'Tomatid', hind: 2.30, kogus: 3 },
+      ]
+    };
+
+    const ostukorviNimekiri = document.getElementById('ostukorv');
+    const kogusummaP = document.getElementById('kogusumma');
+
+    ostukorv.tooted.forEach(toode => {
+      // Lisa toode nimekirja
+      const liElement = document.createElement('li');
+      liElement.textContent = `${toode.nimi} - ${toode.hind} EUR - Kogus: ${toode.kogus}`;
+      ostukorviNimekiri.appendChild(liElement);
+    });
+
+    // Arvuta ja Lisa kogusumma
+    const kogusumma = ostukorv.tooted.reduce((sum, toode) => sum + toode.hind * toode.kogus, 0);
+    kogusummaP.textContent += kogusumma.toFixed(2) + ' EUR';
+  </script>
+</body>
+</html>
